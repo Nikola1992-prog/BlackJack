@@ -94,6 +94,9 @@ if __name__ == "__main__":
         # BlackJack, player win! - if dealer gives 21 in splitting cards
         cards_show(player_cards_in_hand, dealer_cards_in_hand)
         black_jack_game = win_lose_pass_before_stand(dealer_cards_in_hand, player_cards_in_hand, coin_value)
+        if not black_jack_game:
+            black_jack_game = game_repeat()
+            continue
         hit_stand = round_repeat()
 
         # if player want another cards to add to his hand
