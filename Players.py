@@ -3,8 +3,8 @@ from BlackJack import Table
 
 class Dealer(Table):
 
-    # def __init__(self):
-    #     super().__init__()  # This is how u call the init method of super-class
+    def __init__(self):
+        super().__init__()  # This is how u call the init method of super-class
 
     def deal_one(self):
         return self.table_cards.pop()
@@ -31,7 +31,3 @@ class Player:
         print(f'{self.name} bank_acc = {self.bank_acc} $ -  {bet_deal} $ = {self.bank_acc - bet_deal} $')
         self.bank_acc -= bet_deal
 
-#
-# player, money = input('Please enter your name and money (name,money) = ').split(',')
-# player = Player(player, int(money))
-# dealer = Dealer()
