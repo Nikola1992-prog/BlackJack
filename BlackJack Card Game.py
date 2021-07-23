@@ -8,9 +8,9 @@ if __name__ == "__main__":
     player, money = player_input()
     player = Player(player, int(money))
     dealer = Dealer()
-    black_jack_game = True
+    game_is_on = True
 
-    while black_jack_game:  # at_game_is_on
+    while game_is_on:  # game_is_on
         dealer.add_and_shuffle()
         player_cards_in_hand = []
         dealer_cards_in_hand = []
@@ -21,7 +21,7 @@ if __name__ == "__main__":
             add_more_money = money_or_no_money(player, coin_value)
             if not add_more_money:
                 print(f"Thant you for playing this game, u can now withdraw {player.bank_acc}$ money ")
-                black_jack_game = False
+                game_is_on = False
                 break
 
         # dealer split cards
@@ -31,20 +31,19 @@ if __name__ == "__main__":
 
         # BlackJack, player win! - if dealer gives 21 in splitting cards
         cards_show(player, player_cards_in_hand, dealer_cards_in_hand)
-        black_jack_game = win_lose_pass_before_stand(player, dealer_cards_in_hand, player_cards_in_hand, coin_value)
-        if not black_jack_game:
-            black_jack_game = game_repeat()
+        game_is_on = win_lose_pass_before_stand(player, dealer_cards_in_hand, player_cards_in_hand, coin_value)
+        if not game_is_on:
+            game_is_on = game_repeat()
             continue
         hit_stand = round_repeat()
 
         # if player want another cards to add to his hand
-        while hit_stand and black_jack_game:
+        while hit_stand and game_is_on:
             player_cards_in_hand.append(dealer.deal_one())
             clr()
             cards_show(player, player_cards_in_hand, dealer_cards_in_hand)
             black_jack_game = win_lose_pass_before_stand(player, dealer_cards_in_hand, player_cards_in_hand, coin_value)
-            # pass ???
-            if not black_jack_game:
+            if not game_is_on:
                 break
             hit_stand = round_repeat()
 
@@ -57,9 +56,9 @@ if __name__ == "__main__":
                 print('\nPASS')
                 cards_show(player, player_cards_in_hand, dealer_cards_in_hand, len(dealer_cards_in_hand))
                 continue
-            black_jack_game = win_lose_pass_after_stand(player, dealer_cards_in_hand, player_cards_in_hand, coin_value)
+            game_is_on = win_lose_pass_after_stand(player, dealer_cards_in_hand, player_cards_in_hand, coin_value)
 
-        if not black_jack_game:
-            black_jack_game = game_repeat()
+        if not game_is_on:
+            game_is_on = game_repeat()
 
     print(f"Thant you for playing this game, u can now withdraw {player.bank_acc}$ money ")
