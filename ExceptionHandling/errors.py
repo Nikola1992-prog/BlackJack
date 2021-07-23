@@ -75,8 +75,6 @@ def round_repeat():
 
 
 def game_repeat():
-    return input("if you want to play for another round (Yes) or (Exit) for exiting the game = ")
-
     while True:
         try:
             game_answer = input("if you want to play for another round (Yes) or (Exit) for exiting the game = ")
@@ -86,7 +84,7 @@ def game_repeat():
                 print('You must enter Yes or just Y, and Exit or just E')
                 continue
             if game_answer[0].lower() == 'y':
-                return False
-            return True
+                return True
+            return False
         except TypeError as t:
             print(t, '\n')

@@ -20,7 +20,7 @@ if __name__ == "__main__":
         if player.bank_acc < coin_value:
             add_more_money = money_or_no_money(player, coin_value)
             if not add_more_money:
-                print(f"Thant you for playing this game, u can now withdraw {player.bank_acc}$ money ")
+                print(f"Thant you for playing this game, u can now withdraw {player.bank_acc}$")
                 game_is_on = False
                 break
 
@@ -42,18 +42,18 @@ if __name__ == "__main__":
             player_cards_in_hand.append(dealer.deal_one())
             clr()
             cards_show(player, player_cards_in_hand, dealer_cards_in_hand)
-            black_jack_game = win_lose_pass_before_stand(player, dealer_cards_in_hand, player_cards_in_hand, coin_value)
+            game_is_on = win_lose_pass_before_stand(player, dealer_cards_in_hand, player_cards_in_hand, coin_value)
             if not game_is_on:
                 break
             hit_stand = round_repeat()
 
         # when player stands, dealer takes turn and takes add his cards to beet the player
         else:
-            while sum_of_card(dealer_cards_in_hand) <= sum_of_card(player_cards_in_hand):
+            while sum_of_card(dealer_cards_in_hand) < sum_of_card(player_cards_in_hand):
                 dealer_cards_in_hand.append(dealer.deal_one())
             if sum_of_card(dealer_cards_in_hand) == sum_of_card(player_cards_in_hand):
                 clr()
-                print('\nPASS')
+                print('\nPASS no WINNERS AND LOSERS')
                 cards_show(player, player_cards_in_hand, dealer_cards_in_hand, len(dealer_cards_in_hand))
                 continue
             game_is_on = win_lose_pass_after_stand(player, dealer_cards_in_hand, player_cards_in_hand, coin_value)
@@ -61,4 +61,4 @@ if __name__ == "__main__":
         if not game_is_on:
             game_is_on = game_repeat()
 
-    print(f"Thant you for playing this game, u can now withdraw {player.bank_acc}$ money ")
+    print(f"Thant you for playing this game, u can now withdraw {player.bank_acc}$")
