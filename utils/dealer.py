@@ -15,14 +15,6 @@ def sum_of_card(cards_holding):
         return sum_of_cards
 
 
-def round_repeat():
-    return int(input("if you want to hit for another card press (1) or (0) for stand = "))
-
-
-def game_repeat():
-    return int(input("if you want to play for another round (1) or (0) for stand = "))
-
-
 def clr(lines=10):
     print('\n' * lines)
 
