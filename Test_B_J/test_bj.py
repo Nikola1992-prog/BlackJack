@@ -27,7 +27,7 @@ class TestDealer(unittest.TestCase):
 
     def test_sum_of_card(self):
         print('Usao1')
-        result_all_cases = [21, 14, 20, 12, 30, 6, 21, 21, 13, 15, 13, 30]
+        result_all_cases = [21, 14, 20, 13, 30, 6, 21, 21, 13, 15, 13, 30]
 
         for index, player_cards in enumerate(self.all_cases):
             result = sum_of_card(player_cards)
