@@ -15,13 +15,13 @@ class TestDealer(unittest.TestCase):
                          [Card('Hearts', 'King'), Card('Hearts', 'Queen'), Card('Spades', 'Queen')],
                          [Card('Hearts', 'Three'), Card('Clubs', 'Three')]]
 
-    dealer_cards_hand = [[Card('Spades', 'Queen'), Card('Hearts', 'Ace')],  # True PASS 21==21
-                         [Card('Hearts', 'King'), Card('Clubs', 'Ace')],  # False 14 < 21 dealer win
-                         [Card('Hearts', 'King'), Card('Clubs', 'Three')],  # False 20 > 13 dealer lose
-                         [Card('Hearts', 'King'), Card('Clubs', 'Five')],  # False dealer win
-                         [Card('Hearts', 'King'), Card('Hearts', 'Three')],  # False, Dealer win
+    dealer_cards_hand = [[Card('Spades', 'Queen'), Card('Hearts', 'Ace')],
+                         [Card('Hearts', 'King'), Card('Clubs', 'Ace')],
+                         [Card('Hearts', 'King'), Card('Clubs', 'Three')],
+                         [Card('Hearts', 'King'), Card('Clubs', 'Five')],
+                         [Card('Hearts', 'King'), Card('Hearts', 'Three')],
                          [Card('Hearts', 'Jack'), Card('Hearts', 'Queen'),
-                          Card('Spades', 'Queen')]]  # False dealer lose
+                          Card('Spades', 'Queen')]]
 
     # Cards for tasting sum of all cards
     all_cases = player_cards_hand + dealer_cards_hand
@@ -34,7 +34,7 @@ class TestDealer(unittest.TestCase):
             self.assertEqual(result, result_all_cases[index])
 
     def test_win_lose_before_stand(self):
-        result_win_lose_before_stand = [False, True, True, True, False, True]  # BJ, <21, <21, <21, >21, <21
+        result_win_lose_before_stand = [False, True, True, True, False, True]
         for index, (player_hand, dealer_hand) in enumerate(zip(self.player_cards_hand, self.dealer_cards_hand)):
             print(index)
             result = win_lose_pass_before_stand(self.player, dealer_hand, player_hand, self.coin_value)
