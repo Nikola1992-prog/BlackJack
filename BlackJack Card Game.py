@@ -1,7 +1,7 @@
 from Players import Player, Dealer
 from utils.dealer import clr, sum_of_card, win_lose_pass_after_stand
 from utils.dealer import win_lose_pass_before_stand, cards_show
-from ExceptionHandling.errors import player_input, coin_add, game_repeat, round_repeat, money_or_no_money
+from utils.errors import player_input, coin_add, game_repeat, round_repeat, money_or_no_money
 
 if __name__ == "__main__":
 
